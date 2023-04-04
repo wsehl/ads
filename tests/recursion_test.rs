@@ -1,6 +1,20 @@
 use ads::recursion::*;
 
 #[test]
+fn problem_1() {
+    assert_eq!(min(&[1]), 1);
+    assert_eq!(min(&[10, 1, 32, 3, 45]), 1);
+    assert_eq!(min(&[1, 4, 8, 10]), 1);
+}
+
+#[test]
+fn problem_2() {
+    assert_eq!(average(&[1]), 1.0);
+    assert_eq!(average(&[1, 2, 3]), 2.0);
+    assert_eq!(average(&[3, 2, 4, 1]), 2.5);
+}
+
+#[test]
 fn problem_3() {
     assert_eq!(is_prime(0), false);
     assert_eq!(is_prime(1), false);

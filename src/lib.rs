@@ -1,4 +1,33 @@
 pub mod recursion {
+    fn min_recursively(arr: &[i32], n: usize) -> i32 {
+        if n == 1 {
+            return arr[0];
+        }
+
+        let current_min = min_recursively(arr, n - 1);
+
+        if current_min < arr[n - 1] {
+            return current_min;
+        }
+
+        return arr[n - 1];
+    }
+
+    pub fn min(arr: &[i32]) -> i32 {
+        return min_recursively(arr, arr.len());
+    }
+
+    fn average_recursively(arr: &[i32], n: usize) -> f64 {
+        if n == 1 {
+            return arr[0] as f64;
+        }
+        return (average_recursively(arr, n - 1) * (n - 1) as f64 + arr[n - 1] as f64) / n as f64;
+    }
+
+    pub fn average(arr: &[i32]) -> f64 {
+        return average_recursively(arr, arr.len());
+    }
+
     fn is_prime_recursively(n: u64, i: u64) -> bool {
         if i == 1 {
             return true;
