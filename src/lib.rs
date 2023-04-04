@@ -68,6 +68,27 @@ pub mod recursion {
         }
     }
 
+    pub fn is_digit(c: char) -> bool {
+        c >= '0' && c <= '9'
+    }
+
+    fn is_digits_recursively(s: &str) -> bool {
+        if s.is_empty() {
+            return true;
+        }
+        if is_digit(s.chars().next().unwrap()) {
+            return is_digits_recursively(&s[1..]);
+        }
+        return false;
+    }
+
+    pub fn is_digits(s: &str) -> bool {
+        if s.is_empty() {
+            return false;
+        }
+        return is_digits_recursively(s);
+    }
+
     pub fn binomial_coefficient(n: u64, k: u64) -> u64 {
         match k {
             0 => 1,

@@ -54,6 +54,15 @@ fn problem_6() {
 }
 
 #[test]
+fn problem_8() {
+    assert_eq!(is_digit('\n'), false);
+    assert_eq!(is_digit('0'), true);
+    assert_eq!(is_digits("123"), true);
+    assert_eq!(is_digits("123a12"), false);
+    assert_eq!(is_digits(""), false);
+}
+
+#[test]
 fn problem_9() {
     assert_eq!(binomial_coefficient(2, 1), 2);
     assert_eq!(binomial_coefficient(7, 3), 35);
