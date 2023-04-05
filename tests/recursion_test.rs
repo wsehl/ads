@@ -54,6 +54,16 @@ fn problem_6() {
 }
 
 #[test]
+fn problem_7() {
+    assert_eq!(
+        permutations("IOX"),
+        ["IOX", "OIX", "OXI", "IXO", "XIO", "XOI"]
+    );
+    assert_eq!(permutations("CV"), ["CV", "VC"]);
+    assert_eq!(permutations("X"), ["X"]);
+}
+
+#[test]
 fn problem_8() {
     assert_eq!(is_digit('\n'), false);
     assert_eq!(is_digit('0'), true);

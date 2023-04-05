@@ -89,6 +89,28 @@ pub mod recursion {
         return is_digits_recursively(s);
     }
 
+    pub fn permutations(s: &str) -> Vec<String> {
+        if s.len() == 1 {
+            return vec![s.to_string()];
+        }
+
+        let first = s.chars().next().unwrap();
+        let rest = &s[1..];
+
+        let rest_permutations = permutations(rest);
+        let mut result = Vec::new();
+
+        for permutation in rest_permutations {
+            for i in 0..=permutation.len() {
+                let mut permutation_string = permutation.clone();
+                permutation_string.insert(i, first);
+                result.push(permutation_string);
+            }
+        }
+
+        return result;
+    }
+
     pub fn binomial_coefficient(n: u64, k: u64) -> u64 {
         match k {
             0 => 1,
