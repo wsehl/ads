@@ -130,3 +130,47 @@ pub mod recursion {
         }
     }
 }
+
+pub mod algorithms {
+    fn binary_search(arr: &[i32], x: i32) -> Option<usize> {
+        let mut left = 0;
+        let mut right = arr.len() - 1;
+
+        while left <= right {
+            let mid = (left + right) / 2;
+
+            if arr[mid] == x {
+                return Some(mid);
+            }
+
+            if arr[mid] < x {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return None;
+    }
+
+    pub fn search(arr: &[i32], x: i32) -> Option<usize> {
+        return binary_search(arr, x);
+    }
+
+    fn bubble_sort(arr: &mut [i32]) {
+        let mut swapped = true;
+        while swapped {
+            swapped = false;
+            for i in 1..arr.len() {
+                if arr[i - 1] > arr[i] {
+                    arr.swap(i - 1, i);
+                    swapped = true;
+                }
+            }
+        }
+    }
+
+    pub fn sort(arr: &mut [i32]) {
+        bubble_sort(arr);
+    }
+}
