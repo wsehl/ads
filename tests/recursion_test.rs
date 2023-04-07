@@ -55,12 +55,9 @@ fn problem_6() {
 
 #[test]
 fn problem_7() {
-    assert_eq!(
-        permutations("IOX"),
-        ["IOX", "OIX", "OXI", "IXO", "XIO", "XOI"]
-    );
-    assert_eq!(permutations("CV"), ["CV", "VC"]);
-    assert_eq!(permutations("X"), ["X"]);
+    assert_eq!(permute("IOX"), ["IOX", "IXO", "OIX", "OXI", "XOI", "XIO"]);
+    assert_eq!(permute("CV"), ["CV", "VC"]);
+    assert_eq!(permute("X"), ["X"]);
 }
 
 #[test]

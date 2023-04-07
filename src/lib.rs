@@ -93,24 +93,23 @@ pub mod recursion {
         return is_digits_recursively(s);
     }
 
-    pub fn permutations(s: &str) -> Vec<String> {
-        if s.len() == 1 {
-            return vec![s.to_string()];
+    fn backtrack(chars: &mut [char], start: usize, result: &mut Vec<String>) {
+        if start == chars.len() {
+            result.push(chars.iter().collect());
+            return;
         }
+        for i in start..chars.len() {
+            chars.swap(start, i);
+            backtrack(chars, start + 1, result);
+            chars.swap(start, i);
+        }
+    }
 
-        let first = s.chars().next().unwrap();
-        let rest = &s[1..];
-
-        let rest_permutations = permutations(rest);
+    pub fn permute(s: &str) -> Vec<String> {
         let mut result = Vec::new();
+        let mut chars: Vec<char> = s.chars().collect();
 
-        for permutation in rest_permutations {
-            for i in 0..=permutation.len() {
-                let mut permutation_string = permutation.clone();
-                permutation_string.insert(i, first);
-                result.push(permutation_string);
-            }
-        }
+        backtrack(&mut chars, 0, &mut result);
 
         return result;
     }
