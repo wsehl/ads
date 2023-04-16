@@ -1,18 +1,23 @@
-## Getting Started
+## MyList Interface
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+An interface for a generic list of elements, with the following methods:
 
-## Folder Structure
+1. `size()` : returns the number of elements in the list
+2. `contains(Object item)` : returns `true` if the specified item is present in the list, `false` otherwise
+3. `add(T item)` : adds the specified item to the end of the list
+4. `add(T item, int index)` : adds the specified item to the list at the specified index, shifting the existing elements to the right
+5. `remove(T item)` : removes the first occurrence of the specified item from the list, if it is present
+6. `remove(int index)` : removes the item at the specified index from the list, shifting the remaining elements to the left
+7. `clear()` : removes all elements from the list
+8. `get(int index)` : returns the item at the specified index
+9. `indexOf(Object item)` : returns the index of the first occurrence of the specified item in the list, or -1 if it is not present
+10. `lastIndexOf(Object item)` : returns the index of the last occurrence of the specified item in the list, or -1 if it is not present
+11. `sort()` : sorts the list according to the natural ordering of its elements
 
-The workspace contains two folders by default, where:
+## MyArrayList Class
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+An implementation of `MyList` implemented as a dynamic array
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## MyLinkedList Class
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+An implementation of `MyList` implemented as a doubly linked list 
