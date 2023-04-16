@@ -25,14 +25,34 @@ public class App {
 
         System.out.println(numberList.get(0));
 
-        numberList.remove(2);
-
-        try {
-            System.out.println(numberList.get(1));
-        } catch (Exception e) {
-            System.out.println("Index out of bounds");
-        }
-
         numberList.clear();
+
+        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+
+        linkedList.add(24);
+        linkedList.add(33);
+        linkedList.add(10);
+        linkedList.add(45);
+
+        System.out.println(linkedList.get(2)); // should be 10
+
+        System.out.println(linkedList.size()); // should be 4
+
+        linkedList.add(63);
+        System.out.println(linkedList); // should be [24, 33, 10, 45, 63]
+
+        linkedList.remove(3);
+        System.out.println(linkedList);
+
+        System.out.println(linkedList.contains(45)); // false
+
+        System.out.println(linkedList.indexOf(10)); // should be 2
+        System.out.println(linkedList.indexOf(100)); // should be -1
+
+        linkedList.sort();
+        System.out.println(linkedList); // [10, 24, 33, 63]
+
+        linkedList.clear();
+        System.out.println(linkedList); // []
     }
 }
