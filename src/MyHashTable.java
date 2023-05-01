@@ -1,4 +1,5 @@
 public class MyHashTable<K, V> {
+    @SuppressWarnings("hiding")
     private class HashNode<K, V> {
         private K key;
         private V value;
@@ -19,6 +20,7 @@ public class MyHashTable<K, V> {
     private final int capacity;
     private int size;
 
+    @SuppressWarnings("unchecked")
     public MyHashTable(int capacity) {
         this.capacity = capacity;
         chainArray = new HashNode[capacity];
