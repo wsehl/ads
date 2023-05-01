@@ -1,6 +1,4 @@
 {
-    "java.project.sourcePaths": ["java-solutions/src"],
-    "java.project.referencedLibraries": [
-        "java-solutions/lib/**/*.jar"
-    ]
+  "java.project.sourcePaths": ["src"],
+  "java.project.referencedLibraries": ["lib/**/*.jar"]
 }
