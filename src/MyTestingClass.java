@@ -15,5 +15,4 @@ public class MyTestingClass {
         long hashedValue = (long) id * 2654435761L;
         return Math.abs((int) (hashedValue ^ (hashedValue >>> 32)));
     }
-
 }

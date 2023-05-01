@@ -16,46 +16,36 @@ public class MyHashTable<K, V> {
     }
 
     private HashNode<K, V>[] chainArray;
-    private int M = 11; // default number of chains
+    private final int capacity;
     private int size;
 
-    public MyHashTable() {
-        chainArray = new HashNode[M];
+    public MyHashTable(int capacity) {
+        this.capacity = capacity;
+        chainArray = new HashNode[capacity];
     }
 
-    public MyHashTable(int M) {
-        this.M = M;
-        chainArray = new HashNode[M];
+    public MyHashTable() {
+        this(11);
     }
 
     private int hash(K key) {
-        return key.hashCode() % M;
+        return key.hashCode() % capacity;
     }
 
     public void put(K key, V value) {
         int h = hash(key);
-        HashNode<K, V> node = chainArray[h];
-        while (node != null) {
-            if (node.key.equals(key)) {
-                node.value = value;
-                return;
-            }
-            node = node.next;
-        }
-        HashNode<K, V> newNode = new HashNode<>(key, value);
-        newNode.next = chainArray[h];
-        chainArray[h] = newNode;
+        HashNode<K, V> node = new HashNode<>(key, value);
+        node.next = chainArray[h];
+        chainArray[h] = node;
         size++;
     }
 
     public V get(K key) {
         int h = hash(key);
-        HashNode<K, V> node = chainArray[h];
-        while (node != null) {
+        for (HashNode<K, V> node = chainArray[h]; node != null; node = node.next) {
             if (node.key.equals(key)) {
                 return node.value;
             }
-            node = node.next;
         }
         return null;
     }
@@ -85,12 +75,10 @@ public class MyHashTable<K, V> {
 
     public boolean contains(K key) {
         int h = hash(key);
-        HashNode<K, V> node = chainArray[h];
-        while (node != null) {
+        for (HashNode<K, V> node = chainArray[h]; node != null; node = node.next) {
             if (node.key.equals(key)) {
                 return true;
             }
-            node = node.next;
         }
         return false;
     }
@@ -110,8 +98,7 @@ public class MyHashTable<K, V> {
     @Override
     public String toString() {
         String result = "";
-
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < capacity; i++) {
             int count = 0;
             HashNode<K, V> node = chainArray[i];
             while (node != null) {
