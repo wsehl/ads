@@ -1,2 +1,3 @@
-# ads
-Algorithms and Data Structures assignments
+# Assignment 3
+
+HashTable implementation
