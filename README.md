@@ -1,2 +1,3 @@
-# ads
-Algorithms and Data Structures assignments
+# Assignment 1
+
+Recursion and Algorithms
